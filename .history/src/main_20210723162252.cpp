@@ -62,22 +62,16 @@ int main()
             //Input
             processInput(window);
 
-            //Render
-            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
-
-
             glm::mat4 model = glm::mat4(1.0f);
-            // model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-
             glm::mat4 view = glm::mat4(1.0f);
-            view = glm::translate(view, glm::vec3(sin(glfwGetTime()), 0.0f, 0.0f));
-
             glm::mat4 projection = glm::mat4(1.0f);
 
 
             glm::mat4 mvp = projection * view * model;
-            basicShader.setMat4("mvp", mvp);
+
+            //Render
+            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT);
 
             cube.draw(basicShader);
 
