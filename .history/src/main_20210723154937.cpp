@@ -45,31 +45,31 @@ int main()
     }
 
     {
-        float vertices[] = {
-            -0.5f, -0.5f, 0.0f, // left  
-            0.5f, -0.5f, 0.0f, // right 
-            0.0f,  0.5f, 0.0f  // top   
-        }; 
+    float vertices[] = {
+        -0.5f, -0.5f, 0.0f, // left  
+         0.5f, -0.5f, 0.0f, // right 
+         0.0f,  0.5f, 0.0f  // top   
+    }; 
 
-        Mesh cube(vertices);
+    Mesh cube(vertices);
 
-        Shader basicShader("./src/res/shaders/basic.vert", "./src/res/shaders/basic.frag");
+    Shader basicShader("./src/res/shaders/basic.vert", "./src/res/shaders/basic.frag");
 
-        while (!glfwWindowShouldClose(window))
-        {
-            //Input
-            processInput(window);
+    while (!glfwWindowShouldClose(window))
+    {
+        //Input
+        processInput(window);
 
-            //Render
-            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
+        //Render
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
 
-            cube.draw(basicShader);
+        cube.draw(basicShader);
 
-            //Swap poll
-            glfwSwapBuffers(window);
-            glfwPollEvents();
-        }
+        //Swap poll
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
     }
     glfwTerminate();
     return 0;
