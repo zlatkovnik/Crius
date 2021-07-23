@@ -69,19 +69,11 @@ int main()
 
             glm::mat4 model = glm::mat4(1.0f);
             // model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-            model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
 
             glm::mat4 view = glm::mat4(1.0f);
-            view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), 
-  		        glm::vec3(0.0f, 0.0f, 0.0f), 
-  		        glm::vec3(0.0f, 1.0f, 0.0f));
+            view = glm::translate(view, glm::vec3(0.0f, 0.0f, sin(glfwGetTime())));
 
-            glm::mat4 projection = glm::perspective(
-                glm::radians(45.0f),
-                 (float)SCR_WIDTH / (float)SCR_HEIGHT,
-                 0.1f,
-                 100.0f
-                 );
+            glm::mat4 projection = glm::lookAt(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
 
             glm::mat4 mvp = projection * view * model;
