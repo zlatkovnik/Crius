@@ -5,10 +5,7 @@ layout (location = 1) in vec3 aCol;
 
 uniform mat4 mvp;
 
-out vec3 outCol;
-
 void main()
 {
-    outCol = aCol;
     gl_Position = mvp * vec4(aPos.x, aPos.y, aPos.z, 1.0);
 }

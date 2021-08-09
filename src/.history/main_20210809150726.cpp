@@ -70,14 +70,12 @@ int main()
                 vertices.push_back(y);
                 vertices.push_back(0.0f);
 
-                vertices.push_back((float)(i * dim + j) / (dim * dim));
-                vertices.push_back((float)(i * dim + j) / (dim * dim));
-                vertices.push_back((float)(i * dim + j) / (dim * dim));
+                float d = (float)i;
+                if(d == 0) d = 0.0001f;
+                vertices.push_back(lerp(0.0f, 255.0f, (float)i / dim));
+                vertices.push_back(lerp(0.0f, 255.0f, (float)dim / d));
+                vertices.push_back(lerp(0.0f, 255.0f, (float)dim / d));
             }
-        }
-
-        for(int i = 0; i < vertices.size(); i++){
-            std::cout << vertices[i] <<std::endl;
         }
 
         std::vector<unsigned int> indices;

@@ -76,10 +76,6 @@ int main()
             }
         }
 
-        for(int i = 0; i < vertices.size(); i++){
-            std::cout << vertices[i] <<std::endl;
-        }
-
         std::vector<unsigned int> indices;
         for(int i = 0; i < dim; i++){
             for(int j = 0; j < dim; j++){

@@ -69,15 +69,7 @@ int main()
                 vertices.push_back(x);
                 vertices.push_back(y);
                 vertices.push_back(0.0f);
-
-                vertices.push_back((float)(i * dim + j) / (dim * dim));
-                vertices.push_back((float)(i * dim + j) / (dim * dim));
-                vertices.push_back((float)(i * dim + j) / (dim * dim));
             }
-        }
-
-        for(int i = 0; i < vertices.size(); i++){
-            std::cout << vertices[i] <<std::endl;
         }
 
         std::vector<unsigned int> indices;

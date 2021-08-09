@@ -76,10 +76,6 @@ int main()
             }
         }
 
-        for(int i = 0; i < vertices.size(); i++){
-            std::cout << vertices[i] <<std::endl;
-        }
-
         std::vector<unsigned int> indices;
         for(int i = 0; i < dim; i++){
             for(int j = 0; j < dim; j++){
@@ -97,6 +93,11 @@ int main()
         Mesh cube(vertices.data(), vertices.size(), indices.data(), indices.size());
 
         Shader basicShader("./src/res/shaders/basic.vert", "./src/res/shaders/basic.frag");
+
+        char err[1024];
+        while( !(err = glGetError()) ){
+    std::cout << err;
+} 
 
         while (!glfwWindowShouldClose(window))
         {
