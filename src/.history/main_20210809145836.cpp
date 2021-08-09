@@ -49,7 +49,7 @@ int main()
 
     {
         glEnable(GL_DEPTH_TEST);  
-        int dim = 10;
+        int dim = 1;
         float size = 1.0f;
         std::vector<float> vertices;
         for(int i = 0; i <= dim; i++){
@@ -68,10 +68,10 @@ int main()
             for(int j = 0; j < dim; j++){
                 int base = i * dim + j;
                 indices.push_back(base);
+                indices.push_back(base + dim);
                 indices.push_back(base + dim + 1);
-                indices.push_back(base + dim + 2);
                 indices.push_back(base);
-                indices.push_back(base + dim + 2);
+                indices.push_back(base + dim + 1);
                 indices.push_back(base + 1);
             }
         }

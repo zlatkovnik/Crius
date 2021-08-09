@@ -49,7 +49,7 @@ int main()
 
     {
         glEnable(GL_DEPTH_TEST);  
-        int dim = 10;
+        int dim = 1;
         float size = 1.0f;
         std::vector<float> vertices;
         for(int i = 0; i <= dim; i++){

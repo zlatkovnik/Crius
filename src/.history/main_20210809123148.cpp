@@ -18,6 +18,12 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
+struct position {
+    float x;
+    float y;
+    float z;
+};
+
 int main()
 {
     glfwInit();
@@ -49,33 +55,38 @@ int main()
 
     {
         glEnable(GL_DEPTH_TEST);  
-        int dim = 10;
-        float size = 1.0f;
-        std::vector<float> vertices;
-        for(int i = 0; i <= dim; i++){
-            for(int j = 0; j <= dim; j++){
-                float x = j * size;
-                float y = -i * size;
+        // int dim = 10;
+        // float size = 1.0f;
+        // std::vector<struct position> vertices;
+        // for(int i = 0; i < dim; i++){
+        //     for(int j = 0; j < dim; j++){
+        //         float x = j * size;
+        //         float y = i * size;
+        //         struct position pt;
+        //     }
+        // }
 
-                vertices.push_back(x);
-                vertices.push_back(y);
-                vertices.push_back(0.0f);
-            }
-        }
+        std::vector<float> vertices;
+        vertices.push_back(-0.5f);
+        vertices.push_back(0.5f);
+        vertices.push_back(0.0f);
+        vertices.push_back(0.5f);
+        vertices.push_back(0.5f);
+        vertices.push_back(0.0f);
+        vertices.push_back(-0.5f);
+        vertices.push_back(-0.5f);
+        vertices.push_back(0.0f);
+        vertices.push_back(0.5f);
+        vertices.push_back(-0.5f);
+        vertices.push_back(0.0f);
 
         std::vector<unsigned int> indices;
-        for(int i = 0; i < dim; i++){
-            for(int j = 0; j < dim; j++){
-                int base = i * dim + j;
-                indices.push_back(base);
-                indices.push_back(base + dim + 1);
-                indices.push_back(base + dim + 2);
-                indices.push_back(base);
-                indices.push_back(base + dim + 2);
-                indices.push_back(base + 1);
-            }
-        }
-
+        indices.push_back(0);
+        indices.push_back(3);
+        indices.push_back(1);
+        indices.push_back(0);
+        indices.push_back(2);
+        indices.push_back(3);
 
         Mesh cube(vertices.data(), vertices.size(), indices.data(), indices.size());
 
@@ -92,7 +103,7 @@ int main()
 
 
             glm::mat4 model = glm::mat4(1.0f);
-            // model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+            model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f));
             //model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
 
             glm::mat4 view = glm::mat4(1.0f);

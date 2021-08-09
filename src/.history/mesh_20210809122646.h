@@ -36,6 +36,7 @@ public:
 
     void draw(Shader& shader){
         glBindVertexArray(VAO);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
         shader.use();
         glDrawElements(GL_TRIANGLES, vertexCount, GL_UNSIGNED_INT, (void*)0);
     }

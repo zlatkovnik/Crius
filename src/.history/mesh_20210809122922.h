@@ -10,6 +10,11 @@ public:
     Mesh(float *vertices, int vertexCount, unsigned int *indices, int indexCount){
         this->vertexCount = vertexCount;
 
+
+        for(int i = 0; i < 3 * 4; i++){
+            std::cout << vertices[0] << std::endl;
+        }
+
         glGenVertexArrays(1, &VAO);
         glGenBuffers(1, &VBO);
         glBindVertexArray(VAO);

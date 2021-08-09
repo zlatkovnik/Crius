@@ -7,7 +7,7 @@ private:
     unsigned int VAO, VBO, EBO, vertexCount;
 
 public:
-    Mesh(float *vertices, int vertexCount, unsigned int *indices, int indexCount){
+    Mesh(float *vertices, int vertexCount, float *indices, int indexCount){
         this->vertexCount = vertexCount;
 
         glGenVertexArrays(1, &VAO);
